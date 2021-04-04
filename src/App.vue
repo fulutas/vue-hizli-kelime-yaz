@@ -7,7 +7,7 @@
         <span class="text-muted ml-3 f20"><font-awesome-icon :icon="[ 'fab', 'github' ]" /><a href="https://github.com/fulutas" target="_blank"> fulutas</a></span>
       </div>
     </footer>
-
+    
 </template>
 
 <script>
@@ -50,7 +50,7 @@ body.dark .footer {
 
 .footer {
     position: absolute;
-    /* bottom: 0; */
+    bottom: 0;
     width: 100%;
     height: 60px;
     line-height: 60px;

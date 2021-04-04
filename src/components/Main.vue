@@ -25,7 +25,7 @@
     </p>
 
     <div class="alert alert-primary" v-if="isFinish" >
-        <h1>Oyun bitti süre doldu</h1>
+        <h1>Test bitti. Süre doldu 🥳</h1>
         <p class="display-5">60 saniye içerisinde {{dks}} kelime yazdın.</p>
         <h6>Doğruluk Yüzdesi : %{{truePercent}}</h6>
         <h6>Doğru Kelime : {{ trueCount }}</h6>
@@ -34,7 +34,8 @@
     </div>
 
     <div v-if="isFinish" class="d-flex justify-content-center align-items-center">
-        <button class="btn btn-success btn-lg" @click="newGame">Yeni Teste Başla</button>
+        <button class="btn btn-success btn-lg" @click="newGame">
+            <font-awesome-icon :icon="[ 'fas', 'play-circle' ]" /> Yeni Teste Başla</button>
     </div>
 
     <div v-else>
@@ -67,7 +68,7 @@
     <div class="mt-5" v-if="testResult.length > 0"> 
       <div class="section-header d-flex justify-content-between">
       <h3>Geçmiş Test Sonuçları</h3>
-      <button class="btn btn-danger" type="button" style="font-size:17px">
+      <button class="btn btn-danger" type="button" style="font-size:17px" @click="removeTestResult">
             <font-awesome-icon :icon="[ 'fa', 'trash' ]" /> Geçmişi sil
        </button>
        </div>
@@ -203,8 +204,7 @@ export default {
           } else {
              return "Hızlı Kelime Yazma Testi"
           }
-      }
-
+      },
   },
 
   methods : {
@@ -280,7 +280,27 @@ export default {
         document.querySelector('.toggle').onclick = function(){
             body.classList.toggle('dark')
         }
-        
+      },
+      removeTestResult(){
+          Swal.fire({
+                title: 'Silmek istediğinizden emin misiniz?',
+                text: "",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#008000',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Evet'
+                }).then((result) => {
+                if (result.isConfirmed) {
+                    Swal.fire(
+                    'Başarılı',
+                    '',
+                    'success'
+                    )
+                localStorage.removeItem("item")
+                this.testResult.length = 0
+               }
+         })
       },
   },
 };
