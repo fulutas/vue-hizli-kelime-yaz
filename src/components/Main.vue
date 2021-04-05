@@ -98,6 +98,7 @@
 <script>
 
 import wordList from '@/assets/words.json'
+import enwordList from '@/assets/enwords.json' // english words
 import JQuery from 'jquery'
 
 window.$ = JQuery
@@ -115,6 +116,7 @@ export default {
       return {
           words : [],
           wordList : wordList,
+          enwordList : enwordList,
           writingWord : null,
           isTrue : true, // yazılan kelime doğru mu kontrol değişkeni
           trueCount : 0, // doğru girilen kelime sayısı
