@@ -9,8 +9,8 @@
 
   <div class="container jumbotron bg-white">
     <div class="d-flex justify-content-between">  
-    <h1 class="display-4">Hızlı Kelime Yazma Testi</h1>
-   <select class="custom-select custom-select-lg timer-select" v-model="selectedTimer" @change="onChange" :disabled="isRunning">
+    <h1 class="display-4 fontPT">Hızlı Kelime Yazma Testi</h1>
+   <select class="custom-select custom-select-lg timer-select fontKM" v-model="selectedTimer" @change="onChange" :disabled="isRunning">
     <option value="1">60 saniye</option>
     <option value="3">180 saniye</option>
     <option value="5">300 saniye</option>
@@ -20,7 +20,7 @@
           <font-awesome-icon class="themeIcon" :icon="[ 'fas', 'sun' ]" @click="theme" v-else />
        </div>
     </div>
-    <p class="lead">
+    <p class="lead fontKM">
       Hızlı yazma testi ile dakikada kaç kelime yazabileceğini öğren.
     </p>
 
@@ -41,16 +41,16 @@
     <div v-else>
     <div class="card mt-5">
       <div class="card-body">
-          <span v-for="(word, key) in words.filter((data,index) => index<20)" :key="key" class="words ml-2" :class="key != 0 || writingWordControl ">
+          <span v-for="(word, key) in words.filter((data,index) => index<20)" :key="key" class="words ml-2 fontKM" :class="key != 0 || writingWordControl ">
               {{ word }}
           </span>
           </div>
     </div>
 
     <div class="card">
-      <div class="card-body">
+      <div class="card-body wordBG">
         <div class="input-group input-group-lg">
-          <input type="text" class="form-control" placeholder="Kelimeyi yazınız." v-model="writingWord"/>
+          <input type="text" class="form-control fontKM" placeholder="Kelimeyi yazınız." v-model="writingWord"/>
           <div class="input-group-append" id="button-addon4">
             <button class="btn btn-outline-secondary disabled bline" type="button" data-toggle="tooltip" data-placement="bottom" title="Sayacı gizle/göster için tıklayın." :class="[timer < 15 ? 'timer-danger' : null]" >
               <span class="tmp" @click="timerDisplayChange">{{timer}} sn.</span> 
@@ -67,8 +67,8 @@
 
     <div class="mt-5" v-if="testResult.length > 0"> 
       <div class="section-header d-flex justify-content-between">
-      <h3>Geçmiş Test Sonuçları</h3>
-      <button class="btn btn-danger" type="button" style="font-size:17px" @click="removeTestResult">
+      <h3 class="fontPT">Geçmiş Test Sonuçları</h3>
+      <button class="btn btn-danger fontKM" type="button" style="font-size:17px" @click="removeTestResult">
             <font-awesome-icon :icon="[ 'fa', 'trash' ]" /> Geçmişi sil
        </button>
        </div>
@@ -310,6 +310,25 @@ export default {
 
 <style scoped>
 
+.fontPT {
+    font-family: 'PT Sans', sans-serif;
+}
+
+.fontKM {
+    font-family: 'Kumbh', sans-serif!important;
+    letter-spacing: -0.3px;
+}
+
+.wordBG{
+    background-color: #f7f7f7!important;
+}
+
+.display-4 {
+    font-size: 3.5rem;
+    font-weight: 300;
+    line-height: 1.2;
+    margin-top: 7px;
+}
 
 .words {
     font-size: 25px;
@@ -400,6 +419,10 @@ body.dark .bg {
 body.dark .table-hover tbody tr:hover {
     color: azure;
     background-color: rgb(35 39 39);
+}
+
+body.dark .wordBG{
+    background-color: #181818!important;
 }
 
 .custom-select {
