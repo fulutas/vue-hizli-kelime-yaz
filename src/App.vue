@@ -7,7 +7,7 @@
         <span class="text-muted ml-3 f20"><font-awesome-icon :icon="[ 'fab', 'github' ]" /><a href="https://github.com/fulutas" target="_blank"> fulutas</a></span>
       </div>
     </footer>
-    
+
 </template>
 
 <script>
@@ -24,7 +24,8 @@ export default {
 
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@300;400&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Tauri&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=PT+Sans:wght@700&display=swap');
+
 
 * {
   /* margin: 0;
@@ -34,8 +35,7 @@ export default {
 }
 
 body {
-  font-family: 'Kumbh Sans', sans-serif;
-  letter-spacing: -0.8px;
+    font-family: 'Kumbh', sans-serif!important;
 }
 
 
@@ -49,7 +49,7 @@ body.dark .footer {
 }
 
 .footer {
-    position: absolute;
+    position: relative;
     bottom: 0;
     width: 100%;
     height: 60px;
@@ -57,6 +57,7 @@ body.dark .footer {
     /* background-color: #f5f5f5; */
     text-align: center;
     transition: background 0.4s;
+    background-color: #f7f7f7;
 }
 
 .f20{
