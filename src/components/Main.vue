@@ -93,7 +93,7 @@
     </div>
   </div>
 
-  <footer class="footer" :style="testResult.length > 3 ? 'position:relative' : null">
+  <footer class="footer" :style="testResult.length > 4 ? 'position:relative' : null">
       <div class="container">
         <span class="text-muted ml-3 f20"><font-awesome-icon :icon="[ 'fab', 'github' ]" /><a href="https://github.com/fulutas" target="_blank"> fulutas</a></span>
       </div>
